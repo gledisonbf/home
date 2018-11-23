@@ -1,0 +1,297 @@
+package criptografia;
+
+import java.text.Normalizer;
+
+public class Criptografia extends javax.swing.JFrame {
+
+   
+
+    static private void exibirResultados(String Tc, String Tp, String Tp2) {
+
+    }
+
+    public Criptografia() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        btnsair = new javax.swing.JButton();
+        txt_input = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btn_criptografar = new javax.swing.JButton();
+        btn_descriptografar = new javax.swing.JButton();
+        txt_output = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        btn_info = new javax.swing.JButton();
+        lbl_output1 = new javax.swing.JLabel();
+        lbl_output3 = new javax.swing.JLabel();
+        lbl_output2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnsair.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
+        btnsair.setText("SAIR");
+        btnsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnsair, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 254, 143, -1));
+
+        txt_input.setText("   ");
+        txt_input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_inputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_input, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 71, 549, 90));
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setText("CRIPTOGRAFIA");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 230, 34));
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel2.setText(" DIGITE AQUI:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 38, 101, 30));
+
+        btn_criptografar.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
+        btn_criptografar.setText("CRIPTOGRAFAR");
+        btn_criptografar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_criptografarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_criptografar, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 71, 143, -1));
+
+        btn_descriptografar.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
+        btn_descriptografar.setText("DESCRIPTOGRAFAR");
+        btn_descriptografar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_descriptografarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_descriptografar, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 112, -1, -1));
+
+        txt_output.setText(" ");
+        txt_output.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_outputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_output, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 195, 550, 82));
+
+        jButton1.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
+        jButton1.setText("LIMPAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 172, 143, -1));
+
+        btn_info.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
+        btn_info.setText("INFORMAÇÕES");
+        btn_info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_infoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 213, 143, -1));
+
+        lbl_output1.setText(" ");
+        getContentPane().add(lbl_output1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 442, 102, 23));
+
+        lbl_output3.setText(" ");
+        getContentPane().add(lbl_output3, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 172, -1, 25));
+
+        lbl_output2.setText(" ");
+        getContentPane().add(lbl_output2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 358, 85, -1));
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        System.exit(0);
+    }                                       
+
+    private void txt_inputActionPerformed(java.awt.event.ActionEvent evt) {                                          
+
+    }                                         
+
+    private void btn_criptografarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        String Tp = String.valueOf(txt_input.getText());
+
+        char Letras[][];
+        Letras = new char[26][2];
+        //gera e exibe a tabela de referência
+        // System.out.println("Tabela de referência \n--------------------");
+        for (int i = 0; i < 26; i++) {
+            Letras[i][0] = (char) (i + 97);
+            //System.out.print(Letras[i][0] + "=");
+            int j = 0;
+            boolean ok = true;
+            do {
+                if (ok == false) {
+                    ok = true;
+                }
+                //gera um número aleatório para ser o ASCII da letra
+                int Temp = (int) ((Math.random() * 26) + 97);
+                //comparo com as letras já utilizadas
+                for (j = 0; j <= i; j++) {
+                    if (Letras[j][1] == (char) Temp) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok == true) {
+                    Letras[i][1] = (char) Temp;
+                }
+            } while (ok == false);
+            //exibe a tabela de referência
+            //System.out.print(Letras[i][1] + " ");
+            if ((i == 12 || i == 25)) {
+                System.out.print("\n");
+            }
+        }
+        String Tc, Tp2;
+
+        //Tp = "";
+        Tp2 = "";
+        Tc = "";
+        //chama o método de encriptação e de desencriptação
+        // Letras = Letras();
+        // Tc = encriptar(Tp, Letras);
+        // Tp2 = desencriptar(Tc, Letras);
+        //exibe os resultados
+        exibirResultados(Tc, Tp, Tp2);
+
+        Tp = Normalizer.normalize(Tp, Normalizer.Form.NFD);
+        Tp = Tp.replaceAll("[^\\p{ASCII}]", "");
+        //faz a varredura do texto puro
+        for (int i = 0; i < Tp.length(); i++) {
+            for (int j = 0; j < 26; j++) {
+                if (Tp.charAt(i) == Letras[j][0]) {
+                    Tc = Tc + Letras[j][1];
+                    break;
+                }
+                //mantém espaços e caracteres especiais
+                if ((j == 25) && (Tp.charAt(i) != Letras[j][0])) {
+                    Tc = Tc + Tp.charAt(i);
+                }
+            }
+
+        }
+
+        txt_output.setText("" + Tc);
+
+    }                                                
+
+    private void btn_descriptografarActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        String Tc = String.valueOf(txt_input.getText());
+        char Letras[][];
+        Letras = new char[26][2];
+        //gera e exibe a tabela de referência
+        // System.out.println("Tabela de referência \n--------------------");
+        for (int i = 0; i < 26; i++) {
+            Letras[i][0] = (char) (i + 97);
+
+            //exibe a tabela de referência 
+            if ((i == 12 || i == 25)) {
+                System.out.print("\n");
+            }
+        }
+
+        String Tp = "";
+
+        //faz a varredura do texto cifrado
+        for (int i = 0; i < Tc.length(); i++) {
+            for (int j = 0; j < 26; j++) {
+                if (Tc.charAt(i) == Letras[j][1]) {
+                    Tp = Tp + Letras[j][0];
+                    break;
+                }
+                //mantém espaços e caracteres especiais
+                if ((j == 25) && (Tc.charAt(i) != Letras[j][1])) {
+                    Tp = Tp + Tc.charAt(i);
+                }
+            }
+        }
+        txt_output.setText("" + Tp);
+    }                                                   
+
+    private void txt_outputActionPerformed(java.awt.event.ActionEvent evt) {                                           
+
+    }                                          
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+        txt_input.setText("");
+        txt_output.setText("");
+    }                                        
+
+    private void btn_infoActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    }                                        
+
+    public static void main(String args[]) {
+        //variaveis e valores iniciais
+        String Tc, Tp, Tp2;
+
+        char Letras[][];
+        Tp = "";
+        Tp2 = "";
+        Tc = "";
+        //chama o método de encriptação e de desencriptação
+        // Letras = Letras();
+        // Tc = encriptar(Tp, Letras);
+        // Tp2 = desencriptar(Tc, Letras);
+        //exibe os resultados
+        exibirResultados(Tc, Tp, Tp2);
+
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Criptografia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Criptografia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Criptografia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Criptografia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Criptografia().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btn_criptografar;
+    private javax.swing.JButton btn_descriptografar;
+    private javax.swing.JButton btn_info;
+    private javax.swing.JButton btnsair;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_output1;
+    private javax.swing.JLabel lbl_output2;
+    private javax.swing.JLabel lbl_output3;
+    private javax.swing.JTextField txt_input;
+    private javax.swing.JTextField txt_output;
+    // End of variables declaration                   
+
+}
